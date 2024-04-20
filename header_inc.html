@@ -1,0 +1,53 @@
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+	var s_height = 100;
+	var s_width = 100;
+	var s_overlap_h = Math.ceil(s_height / .84);
+	var s_overlap_w = Math.floor(s_width / .84);
+	var l_height = 500;
+	var l_width = 500;
+	var l_overlap_h = Math.ceil(l_height / .84);
+	var l_overlap_w = Math.floor(l_width / .84);
+	var peelDiv = 'page_peel-9973';
+	
+	$(document).ready(function(){
+		$('#'+peelDiv+' img, .page_peel-full').hover(function() {
+			$("#"+peelDiv+" img").stop().animate({ width: l_overlap_w+'px', height: l_overlap_h+'px' }, 400);
+			$(".page_peel-full").stop().animate({ width: l_width+'px', height: l_height+'px' }, 400);
+		}, function(){
+			$("#"+peelDiv+" img").stop().animate({ width: s_overlap_w+'px', height: s_overlap_h+'px' }, 220);
+			$(".page_peel-full").stop().animate({ width: s_width+'px', height: s_height+'px' }, 200);
+		});
+	});
+
+</script>
+
+<style>
+	#page_peel-9973{
+		position: relative;
+	}
+	#page_peel-9973 img{
+		width: 119px;
+		height: 120px;
+		z-index: 9999;
+	
+				position: absolute;
+		right: 0;
+		top: 0;
+			
+		-ms-interpolation-mode: bicubic;
+	}
+	#page_peel-9973 .page_peel-full{
+		width: 100px;
+		height: 100px;
+		z-index: 8888;
+	
+				position: absolute;
+		right: 0;
+		top: 0;
+			
+		background: url("av69.jpg") no-repeat right top;
+		text-indent: -9999px;
+	}
+</style>
+
